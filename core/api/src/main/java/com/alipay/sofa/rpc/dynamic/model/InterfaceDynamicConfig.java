@@ -36,7 +36,6 @@ public class InterfaceDynamicConfig implements DynamicConfig, DynamicConfigListe
     @Override
     public String key(String key) {
         return interfaceDynamicConfigs.get(key);
-
     }
 
     @Override

@@ -35,7 +35,7 @@ public class ApplicationDynamicConfig implements DynamicConfig, DynamicConfigLis
 
     @Override
     public String key(String key) {
-        return null;
+        return applicationConfigs.get(key);
     }
 
     @Override
