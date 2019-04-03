@@ -29,8 +29,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class ApplicationDynamicConfig implements DynamicConfig, DynamicConfigListener {
 
 
-    private Map<String, String> value = new ConcurrentHashMap<>();
-
+    private Map<String, String> applicationConfigs = new ConcurrentHashMap<>();
 
     private DynamicConfiger dynamicConfiger;
 
@@ -46,7 +45,7 @@ public class ApplicationDynamicConfig implements DynamicConfig, DynamicConfigLis
 
     @Override
     public void onChanged(String key, Map<String, String> values) {
-        value.putAll(values);
+        applicationConfigs.putAll(values);
     }
 
 

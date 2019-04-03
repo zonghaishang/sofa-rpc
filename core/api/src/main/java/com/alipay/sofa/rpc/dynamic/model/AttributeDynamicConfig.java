@@ -16,27 +16,44 @@
  */
 package com.alipay.sofa.rpc.dynamic.model;
 
+import com.alipay.sofa.rpc.dynamic.configer.DynamicConfiger;
 import com.alipay.sofa.rpc.dynamic.listener.DynamicConfigListener;
 
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author bystander
  * @version : AttributeDynamicConfig.java, v 0.1 2019年04月02日 20:28 bystander Exp $
  */
 public class AttributeDynamicConfig implements DynamicConfig, DynamicConfigListener {
+
+    private Map<String, String> attrDynamicConfigs = new ConcurrentHashMap<>();
+
+
+    private DynamicConfiger dynamicConfiger;
+
     @Override
     public String key(String key) {
-        return null;
+        return attrDynamicConfigs.get(key);
     }
 
     @Override
     public boolean regist(String key) {
-        return false;
+        return dynamicConfiger.regist(key,this);
     }
 
     @Override
     public void onChanged(String key, Map<String, String> values) {
+        attrDynamicConfigs.putAll(values);
+    }
 
+
+    public DynamicConfiger getDynamicConfiger() {
+        return dynamicConfiger;
+    }
+
+    public void setDynamicConfiger(DynamicConfiger dynamicConfiger) {
+        this.dynamicConfiger = dynamicConfiger;
     }
 }
