@@ -14,16 +14,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.alipay.sofa.rpc.dynamic.configer;
+package com.alipay.sofa.rpc.dynamic.listener;
 
-import com.alipay.sofa.rpc.dynamic.listener.DynamicConfigListener;
+import java.util.Map;
 
 /**
  * @author bystander
- * @version : DynamicConfiger.java, v 0.1 2019年04月02日 20:32 bystander Exp $
+ * @version : DynamicConfigListener.java, v 0.1 2019年04月03日 13:52 bystander Exp $
  */
-public interface DynamicConfiger {
+public interface DynamicConfigListener {
 
-    public boolean regist(String key, DynamicConfigListener listener);
-
+    public void onChanged(String key, Map<String, String> values);
 }

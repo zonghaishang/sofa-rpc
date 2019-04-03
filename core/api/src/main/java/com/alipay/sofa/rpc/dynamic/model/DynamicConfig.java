@@ -21,4 +21,14 @@ package com.alipay.sofa.rpc.dynamic.model;
  * @version : DynamicConfig.java, v 0.1 2019年04月02日 10:29 bystander Exp $
  */
 public interface DynamicConfig {
+
+    /**
+     * 获取指定key
+     * @param key
+     * @return
+     */
+    public String key(String key);
+
+    public boolean regist(String key);
+
 }

@@ -16,9 +16,27 @@
  */
 package com.alipay.sofa.rpc.dynamic.model;
 
+import com.alipay.sofa.rpc.dynamic.listener.DynamicConfigListener;
+
+import java.util.Map;
+
 /**
  * @author bystander
  * @version : InterfaceDynamicConfig.java, v 0.1 2019年04月02日 10:39 bystander Exp $
  */
-public class InterfaceDynamicConfig {
+public class InterfaceDynamicConfig implements DynamicConfig, DynamicConfigListener {
+    @Override
+    public String key(String key) {
+        return null;
+    }
+
+    @Override
+    public boolean regist(String key) {
+        return false;
+    }
+
+    @Override
+    public void onChanged(String key, Map<String, String> values) {
+
+    }
 }
