@@ -541,4 +541,8 @@ public class ProviderConfig<T> extends AbstractInterfaceConfig<T, ProviderConfig
     public ProviderBootstrap getProviderBootstrap() {
         return providerBootstrap;
     }
+
+    public void setProxyClass(Class<?> interfaceClass) {
+        this.proxyClass = interfaceClass;
+    }
 }
